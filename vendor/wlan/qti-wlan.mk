@@ -11,9 +11,9 @@ TARGET_WLAN_COMPONENT_VARIANT := wlan
 BOARD_HAS_QCOM_WLAN := true
 BOARD_WLAN_DEVICE := qcwcn
 BOARD_HOSTAPD_DRIVER := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB := //hardware/qcom/wlan/qcwcn/wpa_supplicant_8_lib:lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+BOARD_HOSTAPD_PRIVATE_LIB := //hardware/qcom-caf/wlan/qcwcn/wpa_supplicant_8_lib:lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := //hardware/qcom/wlan/qcwcn/wpa_supplicant_8_lib:lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := //hardware/qcom-caf/wlan/qcwcn/wpa_supplicant_8_lib:lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 WIFI_DRIVER_BUILT := qca_cld3
 WIFI_DRIVER_DEFAULT := qca_cld3
 WIFI_DRIVER_INSTALL_TO_KERNEL_OUT := true
@@ -47,7 +47,7 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi.supplicant-V1-ndk.vendor \
     vendor.qti.hardware.wifi.supplicant-V1-ndk.vendor
 
-PRODUCT_SOONG_NAMESPACES += hardware/qcom/wlan/qcwcn
+PRODUCT_SOONG_NAMESPACES += hardware/qcom-caf/wlan/qcwcn
 
 # For mk config
 CONFIG_IEEE80211AC := true
@@ -61,8 +61,8 @@ WIFI_FEATURE_SUPPLICANT_11AX := true
 WIFI_FEATURE_SUPPLICANT_11BE := true
 
 # IPACM
-PRODUCT_SOONG_NAMESPACES += vendor/qcom/opensource/data-ipa-cfg-mgr
-$(call inherit-product, vendor/qcom/opensource/data-ipa-cfg-mgr/ipacm_vendor_product.mk)
+PRODUCT_SOONG_NAMESPACES += hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)/data-ipa-cfg-mgr
+$(call inherit-product, hardware/qcom-caf/$(QCOM_HARDWARE_VARIANT)/data-ipa-cfg-mgr/ipacm_vendor_product.mk)
 
 # Include QCOM WLAN makefile.
 -include device/qcom/wlan/$(TARGET_BOARD_PLATFORM)/wlan.mk
