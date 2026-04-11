@@ -30,8 +30,5 @@ include device/qcom/sepolicy/SEPolicy.mk
 endif # !(8937 || 8953 || 8998 || 660)
 endif # Exclude QCOM SEPolicy
 
-# SEPolicy (Nexus)
-include device/nexus/sepolicy/common-um/sepolicy.mk # Include Common Nexus Sepolicy
-ifneq ($(filter $(UM_4_9_FAMILY) $(UM_4_14_FAMILY) $(UM_4_19_FAMILY) $(UM_5_4_FAMILY),$(TARGET_BOARD_PLATFORM)),)
-include device/nexus/sepolicy/legacy-um/sepolicy.mk
-endif
+# SEPolicy (Flare)
+include device/flare/sepolicy/sepolicy.mk # Include Common Flare Sepolicy
