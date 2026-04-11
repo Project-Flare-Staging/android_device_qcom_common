@@ -21,6 +21,12 @@ ifeq (,$(filter 4.4 4.9 4.14 4.19 5.4, $(TARGET_KERNEL_VERSION)))
 PRODUCT_HAS_GADGET_HAL := true
 endif
 
+# Packages
+PRODUCT_PACKAGES += \
+    android.hardware.usb-service.qti \
+    android.hardware.usb.gadget-service.qti \
+    usb_compositions.conf
+
 ifeq ($(PRODUCT_HAS_GADGET_HAL),true)
 PRODUCT_PACKAGES += \
     NcmTetheringOverlay \
