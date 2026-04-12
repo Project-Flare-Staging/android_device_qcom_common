@@ -10,20 +10,17 @@ include hardware/qcom-caf/common/qcom_platform_defs.mk
 
 # Include QCOM board utilities.
 ifeq ($(TARGET_FWK_SUPPORTS_FULL_VALUEADDS),true)
-include vendor/qcom/opensource/core-utils/build/utils.mk
+include hardware/qcom-caf/common//build/utils.mk
 endif
 
 ifeq ($(call is-board-platform-in-list,$(UM_PLATFORMS)),true)
 ifeq ($(TARGET_FWK_SUPPORTS_FULL_VALUEADDS),true)
 # Compatibility matrix
 DEVICE_MATRIX_FILE += \
-    device/qcom/vendor-common/compatibility_matrix.xml
+    hardware/qcom-caf/common/compatibility_matrix.xml
 
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
-    vendor/qcom/opensource/core-utils/vendor_framework_compatibility_matrix.xml
-
-DEVICE_FRAMEWORK_MANIFEST_FILE += \
-    device/qcom/qssi/framework_manifest.xml
+    hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml
 endif
 
 # Opt out of 16K alignment changes
