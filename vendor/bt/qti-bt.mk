@@ -41,5 +41,7 @@ ifneq (,$(filter 3.18 4.4 4.9 4.14 4.19 5.4 5.10, $(TARGET_KERNEL_VERSION)))
 $(call soong_config_set,qssi_bluetooth,enable_delay_in_ms,true)
 endif
 
+ifneq ($(TARGET_EXCLUDE_QTI_PREBUILT_BT),true)
 # Get non-open-source specific aspects.
 $(call inherit-product-if-exists, vendor/qcom/common/vendor/bt/bt-vendor.mk)
+endif

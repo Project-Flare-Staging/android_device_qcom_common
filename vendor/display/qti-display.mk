@@ -89,6 +89,8 @@ endif
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,advanced_sf_offsets.xml,device/qcom/common/vendor/display/$(TARGET_DISP_DIR),$(TARGET_COPY_OUT_VENDOR)/etc/display)
 
+ifneq ($(TARGET_EXCLUDE_QTI_PREBUILT_DISPLAY),true)
 # Get non-open-source specific aspects.
 $(call inherit-product-if-exists, vendor/qcom/common/vendor/display/$(TARGET_DISP_DIR)/display-vendor.mk)
 $(call inherit-product, vendor/qcom/common/vendor/display/display-vendor.mk)
+endif

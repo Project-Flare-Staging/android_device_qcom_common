@@ -7,5 +7,7 @@
 -include $(TOPDIR)vendor/qcom/opensource/commonsys/audio/configs/qssi/qssi.mk
 -include $(TOPDIR)vendor/qcom/opensource/commonsys/audio/configs/qssi/audio_system_product.mk
 
+ifneq ($(TARGET_EXCLUDE_QTI_PREBUILT_AUDIO),true)
 # Get non-open-source specific aspects.
 $(call inherit-product-if-exists, vendor/qcom/common/system/audio/audio-vendor.mk)
+endif

@@ -28,5 +28,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml
 
+ifneq ($(TARGET_EXCLUDE_QTI_PREBUILT_GPS),true)
 # Get non-open-source specific aspects.
 $(call inherit-product-if-exists, vendor/qcom/common/vendor/gps-legacy/gps-legacy-vendor.mk)
+endif

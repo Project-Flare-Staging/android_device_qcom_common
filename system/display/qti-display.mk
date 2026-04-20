@@ -14,5 +14,7 @@ endif
 PRODUCT_PACKAGES += \
     android.hardware.graphics.common-V1-ndk
 
+ifneq ($(TARGET_EXCLUDE_QTI_PREBUILT_DISPLAY),true)
 # Get non-open-source specific aspects.
 $(call inherit-product-if-exists, vendor/qcom/common/system/display/display-vendor.mk)
+endif

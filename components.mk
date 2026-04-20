@@ -27,6 +27,14 @@ endif
 
 # QTI Common Components
 
+ifeq ($(TARGET_EXCLUDE_QTI_PREBUILTS),true)
+TARGET_EXCLUDE_QTI_PREBUILT_AUDIO := true
+TARGET_EXCLUDE_QTI_PREBUILT_BT := true
+TARGET_EXCLUDE_QTI_PREBUILT_DISPLAY := true
+TARGET_EXCLUDE_QTI_PREBUILT_GPS := true
+TARGET_EXCLUDE_QTI_PREBUILT_TELEPHONY := true
+endif
+
 ifneq (,$(filter adreno, $(TARGET_COMMON_QTI_COMPONENTS)))
   ifeq ($(call is-board-platform-in-list,$(UM_6_1_FAMILY)),true)
     TARGET_ADRENO_COMPONENT_VARIANT ?= adreno-u
